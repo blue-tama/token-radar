@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#boardWrap">Skip to the board</a>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <div class="brand"><span class="dot" aria-hidden="true"></span><span class="brand-name">Token Radar</span><span class="tag">radar-2</span></div>
+    <div class="topmeta" id="topmeta"></div>
+  </div>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <h1 id="headline">Pre-token protocols, ranked by what a launch would be worth</h1>
+    <p class="lede" id="lede"></p>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="filters" aria-label="Filter the board">
+    <div class="field grow">
+      <label for="q">Search</label>
+      <input type="search" id="q" placeholder="Name, slug, category or chain" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="category">Category</label>
+      <select id="category"><option value="all">All categories</option></select>
+    </div>
+    <div class="field">
+      <label for="chain">Chain</label>
+      <select id="chain"><option value="all">All chains</option></select>
+    </div>
+    <div class="field">
+      <label for="sort">Sort by</label>
+      <select id="sort">
+        <option value="implied">Implied value</option>
+        <option value="tvl">TVL</option>
+        <option value="growth">7-day growth</option>
+        <option value="age">Age with no token</option>
+        <option value="name">Name</option>
+      </select>
+    </div>
+    <div class="field">
+      <span class="label">Token status</span>
+      <div class="tabs" role="tablist" aria-label="Token status">
+        <button type="button" id="tab-pre" role="tab" aria-selected="true">Pre-token</button>
+        <button type="button" id="tab-live" role="tab" aria-selected="false">Live token</button>
+      </div>
+    </div>
+    <p class="count" id="count"></p>
+  </section>
+
+  <section id="boardWrap" aria-live="polite"></section>
+  <section id="detailWrap" aria-live="polite"></section>
+  <section id="modelWrap"></section>
+</main>
+<footer class="wrap foot">
+  <p>Implied value is this entry's own model, never a price and never a promise. A protocol
+  "records no token" when the snapshot's DefiLlama record carries none — the record is not proof
+  it has none. Data: DefiLlama protocol index, snapshot <span id="asof"></span>.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
